@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nexora Beauty by Shriya Bera</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#14090c;--ink:#f7e9e4;--mut:#b99a96;--gold:#e8b4a0;--wine:#7a1f3d;--card:rgba(40,16,24,.62);--line:rgba(232,180,160,.25);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#14090c}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--ink);font:300 16px/1.6 Jost,system-ui,sans-serif;overflow-x:hidden}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+main,header,footer{position:relative;z-index:1}
+header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:16px 5vw;z-index:5;background:linear-gradient(var(--bg),transparent)}
+.logo{font:500 26px 'Cormorant Garamond',serif;letter-spacing:.3em;color:var(--ink);text-decoration:none}
+nav a{color:var(--ink);text-decoration:none;margin-right:22px;font-size:14px}
+button{font:inherit;cursor:pointer}
+.cartbtn{background:none;border:1px solid var(--gold);color:var(--gold);padding:8px 18px;border-radius:30px}
+.cartbtn:hover,.cta:hover{background:var(--gold);color:var(--bg)}
+.cta{display:inline-block;margin-top:28px;border:1px solid var(--gold);color:var(--gold);background:none;padding:14px 34px;border-radius:40px;text-decoration:none;transition:.3s}
+section{min-height:100vh;padding:110px 5vw 60px;display:flex;flex-direction:column;justify-content:center}
+.hero h1{font:300 clamp(54px,11vw,170px)/.9 'Cormorant Garamond',serif;letter-spacing:.04em}
+.hero em{font-style:italic;color:var(--gold)}
+.hero p{max-width:420px;margin-top:24px;color:var(--mut)}
+h2{font:300 clamp(36px,6vw,80px)/1 'Cormorant Garamond',serif;margin-bottom:12px}
+.story{max-width:560px;margin-left:auto;text-align:right;align-items:flex-end}
+.story p{color:var(--mut);max-width:440px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 28px}
+.filters button{background:none;border:1px solid var(--line);color:var(--ink);padding:7px 16px;border-radius:30px}
+.filters .on{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.card{background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:22px;padding:22px;transform-style:preserve-3d;transition:transform .2s}
+.card .pic{height:150px;border-radius:14px;display:grid;place-items:center;margin-bottom:14px;transition:background .4s}
+.card h3{font:500 24px 'Cormorant Garamond',serif}
+.card .pic{overflow:hidden}.card .pic img{height:100%;width:100%;object-fit:contain;mix-blend-mode:multiply}.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;margin-top:22px;padding:14px;border:1px solid var(--line);border-radius:26px;background:var(--card);backdrop-filter:blur(10px)}.wall figure{background:#fff;border-radius:14px;overflow:hidden;aspect-ratio:1;position:relative;transition:transform .3s}.wall figure:hover{transform:perspective(500px) translateZ(30px) scale(1.12);z-index:2}.wall img{width:100%;height:100%;object-fit:contain}.wall figcaption{position:absolute;left:0;right:0;bottom:0;background:rgba(20,9,12,.88);color:var(--ink);font-size:11px;line-height:1.2;padding:6px;opacity:0;transition:.3s}.wall figure:hover figcaption{opacity:1}.card small{color:var(--mut)}
+.sw{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}
+.sw i{width:24px;height:24px;border-radius:50%;border:2px solid transparent;cursor:pointer;outline-offset:2px}
+.sw i.on{border-color:#fff}
+.sw i:focus-visible{outline:2px solid var(--gold)}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.price{font:500 22px 'Cormorant Garamond',serif}
+.add{background:var(--gold);color:var(--bg);border:0;padding:9px 18px;border-radius:30px;font-weight:500}
+.models{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:24px}
+.look{border-radius:24px;overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:3/4;transition:transform .5s}
+.look:hover{transform:perspective(800px) rotateY(-6deg) scale(1.03)}
+.look svg{width:100%;height:100%;display:block}
+.look div{position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(transparent,rgba(20,9,12,.92))}
+.look b{font:500 24px 'Cormorant Garamond',serif;display:block}
+.note{color:var(--mut);font-size:13px;margin-top:14px}
+#drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:#1d0d13;border-left:1px solid var(--line);z-index:9;transform:translateX(105%);transition:transform .5s cubic-bezier(.7,0,.2,1);padding:24px;overflow:auto;padding-top:calc(24px + env(safe-area-inset-top,0px))}
+#drawer.open{transform:none}
+.item{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.item button{background:none;border:0;color:var(--mut)}
+#drawer input,#drawer textarea{width:100%;margin:6px 0;padding:11px;background:#2a1219;border:1px solid var(--line);border-radius:10px;color:var(--ink);font:inherit}
+.ok{color:var(--gold);font:300 28px 'Cormorant Garamond',serif}
+footer{padding:50px 5vw 70px;text-align:center;color:var(--mut)}
+@media(max-width:700px){nav{display:none}.story{align-items:flex-start;text-align:left;margin:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style></head><body>
+<canvas id="gl"></canvas>
+<header><a class="logo" href="#top">NEXORA</a><nav><a href="#shop">Shop</a><a href="#looks">Looks</a><a href="#about">Story</a><a href="#all">Range</a></nav><button class="cartbtn" id="cb">Bag (0)</button></header>
+<main id="top">
+<section class="hero"><h1>Nex<em>o</em>ra</h1><p>Beauty by Shriya Bera. Lips, skin and eyes in shades made to be worn, not hidden.</p><div><a class="cta" href="#shop">Shop the collection</a></div></section>
+<section class="story" id="about"><h2>Colour with a point of view</h2><p>Nexora began with one idea from Shriya Bera: every skin tone deserves a shade that looks like it was mixed for it. Each formula is light, long-wearing and made to move with you.</p></section>
+<section id="shop"><h2>The collection</h2><p style="color:var(--mut)">Pick a shade and the 3D lipstick turns to match.</p><div class="filters" id="fl"></div><div class="grid" id="gr"></div></section>
+<section id="looks"><h2>Worn by real faces</h2><p style="color:var(--mut)">Each look lists the exact Nexora shades used.</p><div class="models" id="md"></div><p class="note">Portraits are illustrated placeholders. Swap in your own model photos by replacing each look's image.</p></section>
+<section id="all"><h2>All of Nexora, one frame</h2><p style="color:var(--mut)">Every product in the range. Hover to see its name.</p><div class="wall" id="wl"></div></section></main>
+<footer><div class="logo">NEXORA</div><p>Nexora Beauty by Shriya Bera. Made with care.</p></footer>
+<aside id="drawer" aria-label="Shopping bag"><div style="display:flex;justify-content:space-between"><h2 style="font-size:34px">Your bag</h2><button class="cartbtn" id="cx">Close</button></div><div id="items"></div><div id="co"></div></aside>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+var IMG={}; // product photos go here: {"Lip Gloss":"photos/lip-gloss.jpg", ...}
+var P=[
+{n:'Velvet Matte Lipstick',c:'Lips',p:699,i:'Luxury Matte Lipstick',s:[['Rose Nude','#c27a76'],['Berry Bloom','#8c1f4a'],['Classic Red','#b3122b'],['Mauve Muse','#9a5a78'],['Terracotta','#b5553a']]},
+{n:'Glass Shine Lip Gloss',c:'Lips',p:549,i:'Lip Gloss',s:[['Clear Glow','#f1b9b0'],['Peach Fizz','#f08a6c'],['Plum Drip','#92395c'],['Coral Pop','#ee6a5f']]},
+{n:'Skin Veil Foundation',c:'Face',p:1199,i:'Foundation',s:[['Fair 01','#f3d3bd'],['Light 02','#e8bc9a'],['Medium 03','#cf9a72'],['Tan 04','#b67c54'],['Deep 05','#8a5535'],['Rich 06','#5e3722']]},
+{n:'Silk Press Compact',c:'Face',p:849,i:'Dual Blend Powder Foundation',s:[['Porcelain','#f2d8c6'],['Honey','#d9a67f'],['Mocha','#9b6a47']]},
+{n:'Petal Cheek Blush',c:'Face',p:649,i:'Single Pan Blush',s:[['Soft Peach','#f4a58a'],['Rosewood','#c76a77'],['Wild Fig','#9b4a6a']]},
+{n:'Gold Hour Highlighter',c:'Face',p:799,i:'Highlighter Stick',s:[['Champagne','#f0d3a0'],['Rose Gold','#e0a090'],['Bronze Pearl','#c08a5a']]},
+{n:'Dusk 12-Pan Palette',c:'Eyes',p:1499,i:'Eyeshadow Palette',s:[['Sunset','#d9784a'],['Midnight','#2f2a58'],['Nude Edit','#b88a78'],['Emerald','#1e6a58']]},
+{n:'Lift Lash Mascara',c:'Eyes',p:599,i:'Mascara',s:[['Jet Black','#16110f'],['Brown','#4a2b1d']]},
+{n:'Smoke Kajal Pencil',c:'Eyes',p:349,i:'Khol Eyeliner',s:[['Black','#1a1414'],['Teal','#17636b'],['Bronze','#8a5a2e']]},
+{n:'Gel Lacquer Nail Polish',c:'Nails',p:399,s:[['Cherry','#a3112f'],['Nude Pink','#e1a89c'],['Midnight Blue','#1d2a5c'],['Lilac','#a98bc9']]}
+];
+var cart=[],cat='All',sel={},$=function(i){return document.getElementById(i)},tint=new THREE.Color('#b3122b'),tintTo=tint.clone();
+function inr(x){return '₹'+x.toLocaleString('en-IN')}
+function render(){
+ var cs=['All'].concat(P.map(function(p){return p.c}).filter(function(v,i,a){return a.indexOf(v)==i}));
+ $('fl').innerHTML=cs.map(function(c){return '<button class="'+(c==cat?'on':'')+'" data-c="'+c+'">'+c+'</button>'}).join('');
+ $('gr').innerHTML=P.map(function(p,i){if(cat!='All'&&p.c!=cat)return '';var k=sel[i]||0,s=p.s[k],ph=p.i&&IMG[p.i];
+  return '<div class="card"><div class="pic" style="background:radial-gradient(circle at 35% 30%,'+(ph?'#fff,':'')+s[1]+','+(ph?s[1]:'#2a1018')+')">'+(ph?'<img alt="'+p.n+'" src="'+ph+'">':'<svg width="46" height="90" viewBox="0 0 46 90"><rect x="10" y="38" width="26" height="46" rx="4" fill="#d8b08c"/><rect x="14" y="8" width="18" height="34" rx="3" fill="'+s[1]+'"/></svg>')+'</div><small>'+p.c+'</small><h3>'+p.n+'</h3><div class="sw">'+p.s.map(function(x,j){return '<i tabindex="0" role="button" aria-label="'+x[0]+'" title="'+x[0]+'" data-i="'+i+'" data-j="'+j+'" class="'+(j==k?'on':'')+'" style="background:'+x[1]+'"></i>'}).join('')+'</div><small>Shade: '+s[0]+'</small><div class="row"><span class="price">'+inr(p.p)+'</span><button class="add" data-a="'+i+'">Add to bag</button></div></div>'}).join('');
+}
+$('fl').onclick=function(e){if(e.target.dataset.c){cat=e.target.dataset.c;render()}};
+function pick(e){var t=e.target;if(t.dataset.j!==undefined){sel[t.dataset.i]=+t.dataset.j;tintTo.set(P[t.dataset.i].s[t.dataset.j][1]);render()}}
+$('gr').onclick=function(e){pick(e);var a=e.target.dataset.a;if(a!==undefined){var p=P[a],s=p.s[sel[a]||0],f=cart.filter(function(x){return x.k==a+'-'+s[0]})[0];f?f.q++:cart.push({k:a+'-'+s[0],n:p.n,sh:s[0],p:p.p,q:1});upd();$('drawer').classList.add('open')}};
+$('gr').onkeydown=function(e){if(e.key=='Enter')pick(e)};
+function total(){return cart.reduce(function(a,x){return a+x.p*x.q},0)}
+function upd(){$('cb').textContent='Bag ('+cart.reduce(function(a,x){return a+x.q},0)+')';
+ if(!cart.length){$('items').innerHTML='<p style="color:var(--mut);margin:20px 0">Your bag is empty. Choose a shade and tap Add to bag.</p>';$('co').innerHTML='';return}
+ $('items').innerHTML=cart.map(function(x,i){return '<div class="item"><span>'+x.n+'<br><small style="color:var(--mut)">'+x.sh+' × '+x.q+'</small></span><span>'+inr(x.p*x.q)+'<br><button data-r="'+i+'">Remove</button></span></div>'}).join('');
+ var sh=total()>=1500?0:99;
+ $('co').innerHTML='<div class="item"><span>Shipping</span><span>'+(sh?inr(sh):'Free')+'</span></div><div class="item"><b>Total</b><b class="price">'+inr(total()+sh)+'</b></div><h3 style="margin:18px 0 6px;font:500 24px \'Cormorant Garamond\',serif">Delivery details</h3><input id="nm" placeholder="Full name"><input id="ph" placeholder="Phone number"><textarea id="ad" rows="3" placeholder="Delivery address"></textarea><button class="cta" style="width:100%;margin-top:12px" id="po">Place order</button>'}
+$('items').onclick=function(e){if(e.target.dataset.r!==undefined){cart.splice(e.target.dataset.r,1);upd()}};
+$('co').onclick=function(e){if(e.target.id=='po'){if(!$('nm').value||!$('ph').value||!$('ad').value){e.target.textContent='Fill all three fields to continue';return}
+ var id='NX'+Math.floor(100000+Math.random()*900000),t=total();$('items').innerHTML='<p class="ok">Order '+id+' placed</p><p style="color:var(--mut)">Thank you, '+$('nm').value+'. '+inr(t)+' to pay on delivery.</p>';$('co').innerHTML='';cart=[];$('cb').textContent='Bag (0)'}};
+$('cb').onclick=function(){$('drawer').classList.add('open')};$('cx').onclick=function(){$('drawer').classList.remove('open')};
+var L=[['Aarohi','Dewy day look','#6b2a3a','#f0c2a4','#b3122b',[0,2],[2,1]],['Meher','Berry evening','#2b1a40','#d19a74','#8c1f4a',[0,1],[6,1]],['Zoya','Golden hour','#5a3416','#a8714c','#c27a76',[5,0],[4,0]],['Tara','Bold & bronzed','#183a3a','#6e4228','#b5553a',[0,4],[8,2]]];
+$('md').innerHTML=L.map(function(l){var u=l[5],v=l[6];return '<div class="look"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g'+l[0]+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+l[2]+'"/><stop offset="1" stop-color="#14090c"/></linearGradient></defs><rect width="300" height="400" fill="url(#g'+l[0]+')"/><path d="M40 400C50 300 100 285 150 285S250 300 260 400Z" fill="'+l[3]+'"/><rect x="132" y="230" width="36" height="70" fill="'+l[3]+'"/><ellipse cx="150" cy="170" rx="62" ry="80" fill="'+l[3]+'"/><path d="M82 170C70 80 130 60 150 60S235 85 218 175C210 120 180 105 150 105S90 120 82 170Z" fill="#1a0f0d"/><ellipse cx="128" cy="168" rx="10" ry="4" fill="#2a1612"/><ellipse cx="172" cy="168" rx="10" ry="4" fill="#2a1612"/><ellipse cx="115" cy="195" rx="14" ry="8" fill="'+l[4]+'" opacity=".3"/><ellipse cx="185" cy="195" rx="14" ry="8" fill="'+l[4]+'" opacity=".3"/><path d="M130 220Q150 212 170 220Q150 240 130 220Z" fill="'+l[4]+'"/></svg><div><b>'+l[0]+'</b><small>'+l[1]+'</small><br><small style="color:var(--gold)">'+P[u[0]].n+' in '+P[u[0]].s[u[1]][0]+' · '+P[v[0]].n+' in '+P[v[0]].s[v[1]][0]+'</small></div></div>'}).join('');
+$('wl').innerHTML=Object.keys(IMG).map(function(n){return '<figure><img loading="lazy" alt="'+n+'" src="'+IMG[n]+'"><figcaption>'+n+'</figcaption></figure>'}).join('');render();upd();
+/* 3D */
+var cv=$('gl'),R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true}),S=new THREE.Scene(),C=new THREE.PerspectiveCamera(45,1,.1,100);
+R.setPixelRatio(Math.min(devicePixelRatio,2));
+S.add(new THREE.AmbientLight(0xffe0d8,.55));var d1=new THREE.DirectionalLight(0xffffff,1.1);d1.position.set(3,4,5);S.add(d1);var d2=new THREE.PointLight(0xe8b4a0,1.4,30);d2.position.set(-4,-1,3);S.add(d2);
+var gold=new THREE.MeshStandardMaterial({color:0xe0b08a,metalness:.95,roughness:.22}),cm=new THREE.MeshStandardMaterial({color:tint,metalness:.2,roughness:.35});
+var lip=new THREE.Group(),b=new THREE.Mesh(new THREE.CylinderGeometry(.5,.5,2,48),gold);b.position.y=-.6;lip.add(b);
+var r=new THREE.Mesh(new THREE.CylinderGeometry(.42,.42,.25,48),new THREE.MeshStandardMaterial({color:0x2a1018,metalness:.6,roughness:.3}));r.position.y=.52;lip.add(r);
+var bl=new THREE.Mesh(new THREE.CylinderGeometry(.38,.38,1.1,48),cm);bl.position.y=1.2;lip.add(bl);
+var tp=new THREE.Mesh(new THREE.SphereGeometry(.38,32,16,0,6.3,0,1.05),cm);tp.position.y=1.75;tp.scale.set(1,1.1,1);lip.add(tp);
+lip.rotation.z=-.25;S.add(lip);
+var cmp=new THREE.Group(),cb=new THREE.Mesh(new THREE.CylinderGeometry(1,1,.3,64),gold),cc=new THREE.Mesh(new THREE.CylinderGeometry(.82,.82,.32,64),new THREE.MeshStandardMaterial({color:0xd9a67f,roughness:.8}));cc.position.y=.02;cmp.add(cb,cc);cmp.position.set(4,-14,-2);cmp.rotation.x=1.1;S.add(cmp);
+var bt=new THREE.Group(),bb=new THREE.Mesh(new THREE.BoxGeometry(1,1.4,1),new THREE.MeshPhysicalMaterial({color:0xf0c2a4,transmission:.5,roughness:.1,metalness:0})),bc=new THREE.Mesh(new THREE.CylinderGeometry(.3,.3,.7,32),gold);bc.position.y=1.05;bt.add(bb,bc);bt.position.set(-4,-26,-1);S.add(bt);
+var ps=[],cols=[0xe8b4a0,0xb3122b,0xf0d3a0,0x9b4a6a];
+for(var i=0;i<60;i++){var m=new THREE.Mesh(new THREE.SphereGeometry(.05+Math.random()*.12,12,12),new THREE.MeshStandardMaterial({color:cols[i%4],metalness:.7,roughness:.3}));m.position.set((Math.random()-.5)*16,-Math.random()*34+3,(Math.random()-.5)*8-2);m.userData={s:Math.random()*2+.5,o:Math.random()*6};S.add(m);ps.push(m)}
+function rs(){R.setSize(innerWidth,innerHeight,false);C.aspect=innerWidth/innerHeight;C.updateProjectionMatrix()}addEventListener('resize',rs);rs();
+var sc=0,sm=0,mx=0,my=0;addEventListener('mousemove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+function ease(t){return t*t*(3-2*t)}
+function tick(t){requestAnimationFrame(tick);t*=.001;var h=document.documentElement.scrollHeight-innerHeight;sc=h>0?scrollY/h:0;sm+=(sc-sm)*.06;
+ cm.color.lerp(tintTo,.08);
+ var w=innerWidth<700,x=w?0:2.1;
+ lip.position.set(sm<.25?x*(1-ease(sm/.25))+(-x*.8)*ease(sm/.25):-x*.8*(1-ease(Math.min(1,(sm-.25)/.3))),Math.sin(t)*.15-sm*30*.5+(sm>.25?0:0),0);
+ lip.position.y=Math.sin(t)*.15-Math.min(sm,.55)*22*.0;
+ lip.rotation.y=t*.5+sm*14;lip.scale.setScalar(w?.7:1);
+ C.position.set(mx*1.2,-sm*30+3-my,9-Math.sin(sm*Math.PI)*2.5);C.lookAt(mx*.5,-sm*30+2.2,0);
+ lip.position.y+=-sm*30+2;
+ cmp.rotation.z=t*.4;bt.rotation.y=t*.6;
+ ps.forEach(function(m){m.position.y+=Math.sin(t*m.userData.s+m.userData.o)*.003;m.position.x+=Math.cos(t*.5+m.userData.o)*.002});
+ R.render(S,C)}
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){tick(0)}else requestAnimationFrame(tick);
+var cds=document.querySelectorAll('.card');addEventListener('mousemove',function(e){document.querySelectorAll('.card').forEach(function(c){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=Math.abs(x)<.6&&Math.abs(y)<.6?'perspective(700px) rotateY('+x*8+'deg) rotateX('+-y*8+'deg)':''})});
+</script></body></html>
